@@ -11,5 +11,23 @@ sumZero([1, 2, 3]) // undefined
 */
 
 const sumZero = (array) => {
-  
+  let returnArr = [];
+  let index = array.length - 1;
+  for(let i = 0; i < array.length; i++) {
+    if(i === index) {
+      break;
+    }
+    if(array[i] + array[index] === 0) {
+      return [array[i], array[index]];
+    }
+    if(array[i] + array[index] > 0) {
+      i--;
+      index--;
+    }
+    if(array[i] + array[index] < 0) {
+      continue;
+    }
+  }
+
+  return undefined;
 }
